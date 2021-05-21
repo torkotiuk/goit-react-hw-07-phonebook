@@ -2,9 +2,8 @@ import Stat from '../Stat';
 import styles from './ContactList.module.scss';
 
 import { connect } from 'react-redux';
-// import contactsActions from '../../redux/phonebook/contacts-actions';
-// import { deleteContact } from '../../redux/phonebook/contacts-actions';
 import oper from '../../redux/phonebook/contacts-operations';
+import { getVisibleContacts } from '../../redux/phonebook/contacts-selectors';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -62,20 +61,9 @@ const ContactList = ({ items, onDeleteContact, children }) => {
   );
 };
 
-const getVisibleContacts = (allContacts, filter) => {
-  const normalizedFilter = filter.toLowerCase();
-
-  return allContacts.filter(({ name }) =>
-    name.toLowerCase().includes(normalizedFilter),
-  );
-};
-const mapStateToProps = ({ contacts: { items, filter } }) => ({
-  items: getVisibleContacts(items, filter),
+const mapStateToProps = state => ({
+  items: getVisibleContacts(state),
 });
-
-// const mapStateToProps = ({ contacts: { items, filter } }) => ({
-//   items: items,
-// });
 
 const mapDispatchToProps = dispatch => ({
   onDeleteContact: id => dispatch(oper.deleteContact(id)),

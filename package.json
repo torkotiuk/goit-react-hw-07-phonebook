@@ -31,7 +31,7 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "s": "json-server -delay 1200 --watch db.json"
+    "s": "json-server -delay 2000 --watch db.json"
   },
   "eslintConfig": {
     "extends": [

@@ -12,13 +12,10 @@ import {
   delContactFailure,
   changeFilter,
 } from './contacts-actions';
-// console.log(actions);
 
 const items = createReducer([], {
   [fetchContactsSuccess]: (_, { payload }) => payload,
-  // 'contacts/addContactSuccess': (state, { payload }) => [...state, payload],
   [addContactSuccess]: (state, action) => [...state, action.payload],
-  // [actions.addContact]: (state, action) => [...state, action.payload],
   [delContactSuccess]: (state, action) =>
     state.filter(contact => contact.id !== action.payload),
 });
@@ -38,7 +35,5 @@ const loading = createReducer(false, {
   [delContactSuccess]: () => false,
   [delContactFailure]: () => false,
 });
-
-// const error = createReducer(null, {});
 
 export default combineReducers({ items, filter, loading });

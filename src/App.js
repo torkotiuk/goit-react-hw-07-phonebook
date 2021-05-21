@@ -8,6 +8,7 @@ import Modal from './components/Modal';
 import IconButton from './components/IconButton';
 import { ReactComponent as AddIcon } from './icons/add.svg';
 import oper from './redux/phonebook/contacts-operations';
+import { getLoading } from './redux/phonebook/contacts-selectors';
 
 class App extends Component {
   state = {
@@ -46,7 +47,8 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  isLoadingContacts: state.contacts.loading,
+  // isLoadingContacts: state.contacts.loading,
+  isLoadingContacts: getLoading(state),
 });
 
 const mapDispatchToProps = dispatch => ({

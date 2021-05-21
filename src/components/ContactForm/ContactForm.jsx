@@ -3,7 +3,6 @@ import shortid from 'shortid';
 import './ContactForm.module.scss';
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
-// import contactsActions from '../../redux/phonebook/contacts-actions';
 import contactsActions from '../../redux/phonebook/contacts-operations';
 import store from '../../redux/store';
 import styles from './ContactForm.module.scss';
